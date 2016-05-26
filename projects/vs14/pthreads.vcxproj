@@ -37,7 +37,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{84F6473B-F2D7-4C16-B7A4-86BA778738B6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>pthreads</RootNamespace>
+    <RootNamespace>pthread</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -98,85 +98,64 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>lib$(ProjectName)VC2d</TargetName>
-    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(ProjectDir)..\..\..\..\build\msvc\lib\$(PlatformTarget)\</OutDir>
-    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(ProjectDir)..\..\..\..\build\msvc\bin\$(PlatformTarget)\</OutDir>
-    <IntDir>$(OutDir)..\..\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\$(ProjectName)\</IntDir>
+    <TargetName>$(RootNamespace)VC2d</TargetName>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">build\lib\$(PlatformTarget)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">build\bin\$(PlatformTarget)\</OutDir>
+    <IntDir>build\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>lib$(ProjectName)VC2d</TargetName>
-    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(ProjectDir)..\..\..\..\build\msvc\lib\$(PlatformTarget)\</OutDir>
-    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(ProjectDir)..\..\..\..\build\msvc\bin\$(PlatformTarget)\</OutDir>
-    <IntDir>$(OutDir)..\..\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\$(ProjectName)\</IntDir>
+    <TargetName>$(RootNamespace)VC2d</TargetName>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">build\lib\$(PlatformTarget)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">build\bin\$(PlatformTarget)\</OutDir>
+    <IntDir>build\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>lib$(ProjectName)VC2</TargetName>
-    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(ProjectDir)..\..\..\..\build\msvc\lib\$(PlatformTarget)\</OutDir>
-    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(ProjectDir)..\..\..\..\build\msvc\bin\$(PlatformTarget)\</OutDir>
-    <IntDir>$(OutDir)..\..\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\$(ProjectName)\</IntDir>
+    <TargetName>$(RootNamespace)VC2</TargetName>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">build\lib\$(PlatformTarget)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">build\bin\$(PlatformTarget)\</OutDir>
+    <IntDir>build\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TargetName>lib$(ProjectName)VC2</TargetName>
-    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(ProjectDir)..\..\..\..\build\msvc\lib\$(PlatformTarget)\</OutDir>
-    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(ProjectDir)..\..\..\..\build\msvc\bin\$(PlatformTarget)\</OutDir>
-    <IntDir>$(OutDir)..\..\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\$(ProjectName)\</IntDir>
+    <TargetName>$(RootNamespace)VC2</TargetName>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">build\lib\$(PlatformTarget)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">build\bin\$(PlatformTarget)\</OutDir>
+    <IntDir>build\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
-    <TargetName>$(ProjectName)VC2d</TargetName>
-    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(ProjectDir)..\..\..\..\build\msvc\lib\$(PlatformTarget)\</OutDir>
-    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(ProjectDir)..\..\..\..\build\msvc\bin\$(PlatformTarget)\</OutDir>
-    <IntDir>$(OutDir)..\..\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\$(ProjectName)\</IntDir>
+    <TargetName>$(RootNamespace)VC2d</TargetName>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">build\lib\$(PlatformTarget)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">build\bin\$(PlatformTarget)\</OutDir>
+    <IntDir>build\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
-    <TargetName>$(ProjectName)VC2d</TargetName>
-    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(ProjectDir)..\..\..\..\build\msvc\lib\$(PlatformTarget)\</OutDir>
-    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(ProjectDir)..\..\..\..\build\msvc\bin\$(PlatformTarget)\</OutDir>
-    <IntDir>$(OutDir)..\..\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\$(ProjectName)\</IntDir>
+    <TargetName>$(RootNamespace)VC2d</TargetName>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">build\lib\$(PlatformTarget)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">build\bin\$(PlatformTarget)\</OutDir>
+    <IntDir>build\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
-    <TargetName>$(ProjectName)VC2</TargetName>
-    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(ProjectDir)..\..\..\..\build\msvc\lib\$(PlatformTarget)\</OutDir>
-    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(ProjectDir)..\..\..\..\build\msvc\bin\$(PlatformTarget)\</OutDir>
-    <IntDir>$(OutDir)..\..\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\$(ProjectName)\</IntDir>
+    <TargetName>$(RootNamespace)VC2</TargetName>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">build\lib\$(PlatformTarget)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">build\bin\$(PlatformTarget)\</OutDir>
+    <IntDir>build\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
-    <TargetName>$(ProjectName)VC2</TargetName>
-    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(ProjectDir)..\..\..\..\build\msvc\lib\$(PlatformTarget)\</OutDir>
-    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(ProjectDir)..\..\..\..\build\msvc\bin\$(PlatformTarget)\</OutDir>
-    <IntDir>$(OutDir)..\..\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\$(ProjectName)\</IntDir>
+    <TargetName>$(RootNamespace)VC2</TargetName>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">build\lib\$(PlatformTarget)\</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">build\bin\$(PlatformTarget)\</OutDir>
+    <IntDir>build\obj\$(PlatformTarget)\$(Configuration)\$(ConfigurationType)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -201,15 +180,15 @@
     <PreBuildEvent>
       <Command>
 IF EXIST "$(ProjectDir)..\..\config.h" (
-  DEL "$(ProjectDir)..\..\config.h"
+  REM DEL "$(ProjectDir)..\..\config.h"
 )
 
 IF EXIST "$(OutDir)..\..\licenses\$(ProjectName).txt" (
-  DEL "$(OutDir)..\..\licenses\$(ProjectName).txt"
+  DEL /S /Q "$(OutDir)..\..\licenses"
 )
 
-IF EXIST "$(OutDir)..\..\include\$(ProjectName)" (
-  RD /s /q "$(OutDir)..\..\include\$(ProjectName)"
+IF EXIST "$(OutDir)..\..\include\$(ProjectName)\pthread.h" (
+  DEL /S /Q "$(OutDir)..\..\include"
 )
       </Command>
     </PreBuildEvent>
@@ -258,15 +237,15 @@ ENDLOCAL
     <PreBuildEvent>
       <Command>
 IF EXIST "$(ProjectDir)..\..\config.h" (
-  DEL "$(ProjectDir)..\..\config.h"
+  REM DEL "$(ProjectDir)..\..\config.h"
 )
 
 IF EXIST "$(OutDir)..\..\licenses\$(ProjectName).txt" (
-  DEL "$(OutDir)..\..\licenses\$(ProjectName).txt"
+  DEL /S /Q "$(OutDir)..\..\licenses"
 )
 
-IF EXIST "$(OutDir)..\..\include\$(ProjectName)" (
-  RD /s /q "$(OutDir)..\..\include\$(ProjectName)"
+IF EXIST "$(OutDir)..\..\include\$(ProjectName)\pthread.h" (
+  DEL /S /Q "$(OutDir)..\..\include"
 )
       </Command>
     </PreBuildEvent>
@@ -327,15 +306,15 @@ ENDLOCAL
     <PreBuildEvent>
       <Command>
 IF EXIST "$(ProjectDir)..\..\config.h" (
-  DEL "$(ProjectDir)..\..\config.h"
+  REM DEL "$(ProjectDir)..\..\config.h"
 )
 
 IF EXIST "$(OutDir)..\..\licenses\$(ProjectName).txt" (
-  DEL "$(OutDir)..\..\licenses\$(ProjectName).txt"
+  DEL /S /Q "$(OutDir)..\..\licenses"
 )
 
-IF EXIST "$(OutDir)..\..\include\$(ProjectName)" (
-  RD /s /q "$(OutDir)..\..\include\$(ProjectName)"
+IF EXIST "$(OutDir)..\..\include\$(ProjectName)\pthread.h" (
+  DEL /S /Q "$(OutDir)..\..\include"
 )
       </Command>
     </PreBuildEvent>
@@ -394,15 +373,15 @@ ENDLOCAL
     <PreBuildEvent>
       <Command>
 IF EXIST "$(ProjectDir)..\..\config.h" (
-  DEL "$(ProjectDir)..\..\config.h"
+  REM DEL "$(ProjectDir)..\..\config.h"
 )
 
 IF EXIST "$(OutDir)..\..\licenses\$(ProjectName).txt" (
-  DEL "$(OutDir)..\..\licenses\$(ProjectName).txt"
+  DEL /S /Q "$(OutDir)..\..\licenses"
 )
 
-IF EXIST "$(OutDir)..\..\include\$(ProjectName)" (
-  RD /s /q "$(OutDir)..\..\include\$(ProjectName)"
+IF EXIST "$(OutDir)..\..\include\$(ProjectName)\pthread.h" (
+  DEL /S /Q "$(OutDir)..\..\include"
 )
       </Command>
     </PreBuildEvent>
@@ -461,15 +440,15 @@ ENDLOCAL
     <PreBuildEvent>
       <Command>
 IF EXIST "$(ProjectDir)..\..\config.h" (
-  DEL "$(ProjectDir)..\..\config.h"
+  REM DEL "$(ProjectDir)..\..\config.h"
 )
 
 IF EXIST "$(OutDir)..\..\licenses\$(ProjectName).txt" (
-  DEL "$(OutDir)..\..\licenses\$(ProjectName).txt"
+  DEL /S /Q "$(OutDir)..\..\licenses"
 )
 
-IF EXIST "$(OutDir)..\..\include\$(ProjectName)" (
-  RD /s /q "$(OutDir)..\..\include\$(ProjectName)"
+IF EXIST "$(OutDir)..\..\include\$(ProjectName)\pthread.h" (
+  DEL /S /Q "$(OutDir)..\..\include"
 )
       </Command>
     </PreBuildEvent>
@@ -527,15 +506,15 @@ ENDLOCAL
     <PreBuildEvent>
       <Command>
 IF EXIST "$(ProjectDir)..\..\config.h" (
-  DEL "$(ProjectDir)..\..\config.h"
+  REM DEL "$(ProjectDir)..\..\config.h"
 )
 
 IF EXIST "$(OutDir)..\..\licenses\$(ProjectName).txt" (
-  DEL "$(OutDir)..\..\licenses\$(ProjectName).txt"
+  DEL /S /Q "$(OutDir)..\..\licenses"
 )
 
-IF EXIST "$(OutDir)..\..\include\$(ProjectName)" (
-  RD /s /q "$(OutDir)..\..\include\$(ProjectName)"
+IF EXIST "$(OutDir)..\..\include\$(ProjectName)\pthread.h" (
+  DEL /S /Q "$(OutDir)..\..\include"
 )
       </Command>
     </PreBuildEvent>
@@ -608,15 +587,15 @@ ENDLOCAL
     <PreBuildEvent>
       <Command>
 IF EXIST "$(ProjectDir)..\..\config.h" (
-  DEL "$(ProjectDir)..\..\config.h"
+  REM DEL "$(ProjectDir)..\..\config.h"
 )
 
 IF EXIST "$(OutDir)..\..\licenses\$(ProjectName).txt" (
-  DEL "$(OutDir)..\..\licenses\$(ProjectName).txt"
+  DEL /S /Q "$(OutDir)..\..\licenses"
 )
 
-IF EXIST "$(OutDir)..\..\include\$(ProjectName)" (
-  RD /s /q "$(OutDir)..\..\include\$(ProjectName)"
+IF EXIST "$(OutDir)..\..\include\$(ProjectName)\pthread.h" (
+  DEL /S /Q "$(OutDir)..\..\include"
 )
       </Command>
     </PreBuildEvent>
@@ -686,15 +665,15 @@ ENDLOCAL
     <PreBuildEvent>
       <Command>
 IF EXIST "$(ProjectDir)..\..\config.h" (
-  DEL "$(ProjectDir)..\..\config.h"
+  REM DEL "$(ProjectDir)..\..\config.h"
 )
 
 IF EXIST "$(OutDir)..\..\licenses\$(ProjectName).txt" (
-  DEL "$(OutDir)..\..\licenses\$(ProjectName).txt"
+  DEL /S /Q "$(OutDir)..\..\licenses"
 )
 
-IF EXIST "$(OutDir)..\..\include\$(ProjectName)" (
-  RD /s /q "$(OutDir)..\..\include\$(ProjectName)"
+IF EXIST "$(OutDir)..\..\include\$(ProjectName)\pthread.h" (
+  DEL /S /Q "$(OutDir)..\..\include"
 )
       </Command>
     </PreBuildEvent>

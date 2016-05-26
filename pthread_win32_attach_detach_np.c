@@ -40,12 +40,12 @@
 /*
  * Handle to quserex.dll 
  */
-static HINSTANCE ptw32_h_quserex;
+static HINSTANCE ptw32_h_quserex = NULL;
 
 BOOL
 pthread_win32_process_attach_np ()
 {
-  TCHAR QuserExDLLPathBuf[1024];
+  TCHAR QuserExDLLPathBuf[1024] = { 0 };
   BOOL result = TRUE;
 
   result = ptw32_processInitialize ();
@@ -78,7 +78,7 @@ pthread_win32_process_attach_np ()
                    sizeof(QuserExDLLPathBuf) - strlen(QuserExDLLPathBuf) - 1);
     ptw32_h_quserex = LoadLibrary(QuserExDLLPathBuf);
   }
-#else
+#elif 0
   /* strncat is secure - this is just to avoid a warning */
   if(GetSystemDirectory(QuserExDLLPathBuf, sizeof(QuserExDLLPathBuf)) &&
      0 == strncat_s(QuserExDLLPathBuf, sizeof(QuserExDLLPathBuf), "\\QUSEREX.DLL", 12))
