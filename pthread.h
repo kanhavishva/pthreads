@@ -313,6 +313,12 @@ enum {
 #endif
 #endif
 
+#ifndef HAVE_STRUCT_TIMESPEC
+#if defined(_MSC_VER) && _MSC_VER >= 1900
+#define HAVE_STRUCT_TIMESPEC 1
+#endif
+#endif
+
 #if !defined(HAVE_STRUCT_TIMESPEC)
 #define HAVE_STRUCT_TIMESPEC
 #if !defined(_TIMESPEC_DEFINED)
